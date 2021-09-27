@@ -1,5 +1,7 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
+use rocket_contrib::json::Json;
+
 #[macro_use]
 extern crate rocket;
 
@@ -9,6 +11,6 @@ fn rocket() -> _ {
 }
 
 #[get("/")]
-fn index() -> &'static str {
-    "ok"
+fn index() -> Json<bool> {
+    Json(true)
 }
